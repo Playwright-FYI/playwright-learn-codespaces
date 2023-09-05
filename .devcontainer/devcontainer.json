@@ -21,7 +21,7 @@
   },
 
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "cd blog; npm install && npx next telemetry disable && npm run build",
+  "updateContentCommand": "npm install",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "postAttachCommand": {
     "server": "cd blog; npm run dev"

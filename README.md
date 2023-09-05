@@ -2,6 +2,8 @@
 
 A Playwright-enabled Codespaces repo with a basic application and test harness in place. Useful for workshops and as a starter template for application development.
 
+<br/>
+
 ## Using Playwright: Dev Containers
 
 Using a Dev Container environment is recommended for two reasons:
@@ -18,6 +20,7 @@ From the [Codespaces documentation](https://docs.github.com/en/codespaces/develo
 
 Playwright takes advantage of this, ensuring that ports opened by the HTML Reporter for example, are auto-forwarded and don't need to be explicitly specified. This is also useful when we may have dev servers look for (and run on) the first available port when their default option is already in use. Now, its dynamically-selected port is auto-forwarded.
 
+<br/>
 
 ## Using Playwright: Command-Line
 
@@ -53,7 +56,27 @@ Running 6 tests using 4 workers
 ## Playwright searches entire sub-tree for named spec - no need to give specific subfolder
 $ npx playwright test --config exercises/1-base-example demo.spec.ts
 Running 72 tests using 4 workers
+
+## If no configuration file or scoping folder specified, it assumes defaults
+## i.e., #workers=2, testDir='./', reporter is 'List', projects=1 (Chromium)
+$ npx playwright test
+Running 50 tests using 2 workers
 ```
+
+In the last example, [List Reporter](https://playwright.dev/docs/test-reporters#list-reporter) prints test outcomes to the console. There is no HTML report. Note that this here `50 tests` comes from the total of base-example (2), todo-demo (24) and todo-example (24) - all of which are run in 1 project (Chromium as default browser).
+
+```bash
+$ npx playwright test
+
+Running 50 tests using 2 workers
+  ✓  1 exercises/1-base-example/tests/example.spec.ts:3:5 › has title (415ms)
+  ✓  2 exercises/1-base-example/tests/todo-demo/demo.spec.ts:14:7 › New Todo › should allow me to add todo items (476ms)
+  ✓  3 exercises/1-base-example/tests/example.spec.ts:10:5 › get started link (567ms)
+  ✓  4 …ase-example/tests/todo-demo/demo.spec.ts:40:7 › New Todo › should clear text input field when an item is added (282ms)
+  ...
+```
+
+<br/>
 
 ## Using Playwright: Visual Studio Code
 
