@@ -1,2 +1,4 @@
-# playwright-learn-codespaces
-Playwright Learn Path Sample on Codespaces
+# Playwright ❤️ Codespaces
+
+A Playwright-enabled Codespaces repo with a basic application and test harness in place.
+Useful for workshops and as starter template.
